@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { ABOUT_BOXES } from "~/constants"
-const { animateBoxOnScroll } = useGsap()
+// const { animateBoxOnScroll } = useGsap()
 
 // onMounted(() => {
 //  animateBoxOnScroll()

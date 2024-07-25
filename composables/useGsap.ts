@@ -1,9 +1,6 @@
-import theGsap from "gsap"
+import { gsap } from "gsap"
 export default function useGsap() {
- const gsap = theGsap
  const tl = gsap.timeline()
- const executeTransition = ref(false)
-
  const loadingScreenDuration = 1.2 //in_1.2 leave 1
  const loadinScreenEase = "Expo.easeInOut"
 
@@ -349,8 +346,6 @@ export default function useGsap() {
   const onceScroll = 'main#home .box-wrapper [once-scroll]'
   const containers = gsap.utils.toArray("main#home .box-wrapper")
   containers.forEach((container: HTMLElement, index: number) => {
-   // console.log({ containerIndex: container.dataset.boxIndex, container })
-   // gsap.set(, {
    const isRight = index % 2 !== 0 // yes
    gsap.set(`main#home .box-wrapper[data-box-index='${index}'] [once-scroll]`, {
     opacity: 0, x: isRight ? 200 : -200
