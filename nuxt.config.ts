@@ -19,7 +19,7 @@ export default defineNuxtConfig({
 
 
   image: {
-    // provider: "vercel"
+    provider: "vercel"
   },
 
   googleFonts: {
