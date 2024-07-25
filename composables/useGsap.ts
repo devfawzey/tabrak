@@ -1,8 +1,6 @@
 import theGsap from "gsap"
 export default function useGsap() {
- const loaderStore = useLoaderStore()
- const { $gsap } = useNuxtApp() as any
- const gsap = $gsap ?? theGsap
+ const gsap = theGsap
  const tl = gsap.timeline()
  const executeTransition = ref(false)
 
