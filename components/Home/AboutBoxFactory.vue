@@ -19,7 +19,7 @@ const isBoxRight = computed(() => props.index % 2 !== 0) //yes
   <!-- <BaseWrapper class="py-24"> -->
   <div class="grid grid-cols-1 md:grid-cols-7 gap-y-8 min-h-[420px]">
    <div :class="{ 'md:order-2': isBoxRight }" class="img__wrapper md:col-span-4 relative">
-    <NuxtImg data-wrapper format="webp" :src="`/about-us/${box.img}.jpg`" class="h-full max-h-[350px] sm:max-h-none max-w-full" once-scroll />
+    <NuxtImg data-wrapper format="webp" :src="`/about-us/box-${box.img}.jpg`" class="h-full max-h-[350px] sm:max-h-none max-w-full" once-scroll />
    </div>
    <!-- content -->
    <!-- margin hr(w-1/2 + transaltex) -->
