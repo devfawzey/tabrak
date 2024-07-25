@@ -7,30 +7,16 @@ export default defineNuxtConfig({
     head: {
       link: [
         { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }
-      ]
+      ],
     }
   },
 
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "shadcn-nuxt",
-    "@nuxt/icon",
-    "@vueuse/nuxt",
-    "@nuxtjs/google-fonts",
-    '@pinia/nuxt',
-    "@nuxt/image"
-  ],
-  shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
-    prefix: '',
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: './components/ui'
-  },
+  modules: [// "@nuxtjs/tailwindcss",
+  // "shadcn-nuxt",
+  "@nuxt/icon", "@vueuse/nuxt", // "@nuxt/ui"
+  "@nuxtjs/google-fonts", // "@nuxt/ui",
+  '@pinia/nuxt', "@nuxt/image", "@nuxt/ui", "notivue/nuxt", "nuxt-aos"],
+
 
   image: {
     // provider: "vercel"
@@ -38,8 +24,17 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      Poppins: [100, 200, 300, 400, 500, 600, 700, 800, 900]
+      Poppins: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+      Roboto: [100, 200, 300, 400, 500, 600, 700, 800, 900]
     }
-  }
+  },
+  css: [
+    'notivue/notification.css', // Only needed if using built-in notifications
+    'notivue/animations.css' // Only needed if using built-in animations
+  ],
 
+  notivue: {
+    limit: 2,
+    avoidDuplicates: true
+  }
 })

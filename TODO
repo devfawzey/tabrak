@@ -1,0 +1,9 @@
+
+Todo:
+  ☐ Add loading component
+  add zoom on image while scrolling
+  zoom out after loading page
+  test landing img with hight quality and make loading start after image loaded
+  optimize navigation menu contact
+  add nuxt_img module fot <img /> and bg-img
+  add debounce for loader transition || if img cannot load execute transition any way

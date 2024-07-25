@@ -74,10 +74,10 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground overflow-hidden;
+    @apply bg-background text-foreground overflow-hidden pe-2;
   }
   ::-webkit-scrollbar {
-    @apply w-2 bg-neutral-800;
+    @apply w-2 bg-accent;
   }
   ::-webkit-scrollbar-thumb {
     @apply w-2 bg-[#696A64] rounded-lg;
@@ -86,23 +86,17 @@
     @apply w-2 bg-transparent;
   }
   .main-header {
-    @apply text-sm mb-4 uppercase tracking-[4.5px] font-light;
+    @apply text-sm mb-4 uppercase tracking-[4.5px] font-light text-white/95;
   }
   .sub-header {
-    @apply text-3xl lg:text-[40px] text-[#111] tracking-wider font-bold dark:text-white;
+    @apply text-3xl lg:text-[40px] text-[#111] tracking-wider font-bold;
   }
   .text-header {
-    @apply text-black/70  leading-8 dark:text-white;
-  }
-  .description {
-    @apply text-black/70 leading-8 dark:text-white/70;
+    @apply text-black/70  leading-8;
   }
 }
+
 
 [once-in] {
   transform: translateY(50vh);
-}
-
-.Notivue__icon {
-  color: black;
 }

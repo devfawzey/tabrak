@@ -1,5 +1,6 @@
 <template>
- <main id="home">
-  <nuxt-img src="/favicon.svg" />
+ <main id="home" class="min-h-[300vh] relative">
+  <HomeLanding />
+  <HomeAboutUs />
  </main>
 </template>
