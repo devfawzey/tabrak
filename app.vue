@@ -1,13 +1,12 @@
 <script setup lang="ts">
-const { pageTransitionLeave } = useGsap()
-import { outlinedIcons, slateTheme } from "notivue"
+const { pageTransitionLeave, pageTransitionEnter } = useGsap()
+import { outlinedIcons, slateTheme } from "notivue";
+const nuxtApp = useNuxtApp()
 const router = useRouter()
 const route = useRoute()
 const routeName = ref(route.name)
 
-onMounted(() => {
-  // pageTransitionOnMount()
-})
+nuxtApp.hook("page:finish", pageTransitionEnter)
 
 router.beforeEach(async (to, from, next) => {
   routeName.value = to.name as any
