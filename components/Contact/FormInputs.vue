@@ -33,22 +33,9 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   state.message = undefined
   // Do something with data
   push.success("Message has been send");
-  sendEmail()
 
  }, 2000)
 }
-
-const sendEmail = () => {
- const mail = useMail();
- mail.send({
-  from: state.email,
-  text: state.message,
-  subject: `Message from ${state.name} with phoneNumber: ${state.phoneNumber}`
- }).then((result: any) => { console.log(result) })
-}
-onMounted(() => {
- // config.notifications.value
-})
 </script>
 
 <template>

@@ -15,26 +15,12 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/icon",
     "@vueuse/nuxt",
-    "@nuxtjs/google-fonts", '@pinia/nuxt', "@nuxt/image", "@nuxt/ui", "notivue/nuxt", "nuxt-aos", "nuxt-mail"],
-  mail: {
-    message: {
-      to: 'ahmed.booley@gmail.com',
-    },
-    smtp: {
-      host: "https://tabrak-pi.vercel.app/",
-      port: 587,
-    },
+    "@nuxtjs/google-fonts", '@pinia/nuxt', "@nuxt/image", "@nuxt/ui", "notivue/nuxt", "nuxt-aos"],
+  aos: {
+    once: true
   },
-  // vueEmail: {
-  //   autoImports: false,
-  // },
-  // nitro: {
-  //   rollupConfig: {
-  //     plugins: [vue()]
-  //   }
-  // },
   image: {
-    // provider: "vercel"
+    provider: "vercel"
   },
 
   googleFonts: {
