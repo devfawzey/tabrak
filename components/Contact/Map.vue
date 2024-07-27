@@ -45,7 +45,7 @@ export default {
     </l-tile-layer>
     <!-- <l-geo-json :geojson="geojson" :options="geojsonOptions" /> -->
    </l-map>
-   <div class="map-wrapper py-20 px-8 h-full" v-else>
+   <div class="map-wrapper pb-20 px-8 h-full" v-else>
     <div class="main-header">Map</div>
     <div class="sub-header mb-8">Where We Are</div>
     <ContactGoogleMap />

@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { z } from 'zod'
-import { useNotivue } from "notivue"
-import type { FormSubmitEvent, FormError } from '#ui/types'
+import type { FormSubmitEvent } from '#ui/types'
 
-const config = useNotivue()
 const isBtnLoading = ref(false)
 const phoneRegex = new RegExp(
  /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
@@ -34,11 +32,20 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   state.email = undefined
   state.message = undefined
   // Do something with data
-  push.success("Message has been send")
+  push.success("Message has been send");
+  sendEmail()
 
  }, 2000)
 }
 
+const sendEmail = () => {
+ const mail = useMail();
+ mail.send({
+  from: state.email,
+  text: state.message,
+  subject: `Message from ${state.name} with phoneNumber: ${state.phoneNumber}`
+ }).then((result: any) => { console.log(result) })
+}
 onMounted(() => {
  // config.notifications.value
 })
@@ -49,25 +56,25 @@ onMounted(() => {
   <div class="form__content grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
    <!--  -->
    <UFormGroup name="name">
-    <UInput autocomplete="given-name" variant="outline" color="gray" size="xl" v-model="state.name" placeholder="Name" type="text" />
+    <UInput autocomplete="given-name" variant="outline" color="gray" size="xl" v-model="state.name" placeholder="Name"
+     type="text" />
    </UFormGroup>
    <!--  -->
    <UFormGroup name="phoneNumber">
-    <UInput autocomplete="given-name" color="gray" size="xl" v-model="state.phoneNumber" placeholder="your phonenumber" />
+    <UInput autocomplete="given-name" color="gray" size="xl" v-model="state.phoneNumber" placeholder="phonenumber" />
    </UFormGroup>
    <UFormGroup name="email" class="lg:col-span-2">
     <UInput autocomplete="given-name" color="gray" size="xl" v-model="state.email" placeholder="example@gmail.com" />
    </UFormGroup>
    <UFormGroup name="message" class="lg:col-span-2">
-    <UTextarea a autocomplete="given-name" resize color="gray" :rows="6" size="xl" v-model="state.message" placeholder="Message" />
+    <UTextarea a autocomplete="given-name" resize color="gray" :rows="6" size="xl" v-model="state.message"
+     placeholder="Message" />
    </UFormGroup>
   </div>
   <UButton loading-icon="eos-icons:loading" :loading="isBtnLoading" padded type="submit" color="gray" variant="solid"
-   class="float-right ring-gray-200 dark:disabled:text-white/50 dark:ring-gray-50 dark:bg-white dark:hover:bg-white/90 dark:text-black mt-4 px-8 shadow-none" size="md" trailing icon="i-system-uicons-arrow-right">
+   class="float-right ring-gray-200 dark:disabled:text-white/50 dark:ring-gray-50 dark:bg-white dark:hover:bg-white/90 dark:text-black mt-4 px-8 shadow-none"
+   size="md" trailing icon="i-system-uicons-arrow-right">
    <span class="mr-1">Submit</span>
-   <!-- <template #trailing>
-    <UIcon  class="w-5 h-5" />
-   </template> -->
   </UButton>
  </UForm>
 </template>

@@ -18,7 +18,7 @@ const bgStyle = ref({
    class="grid grid-cols-1 md:grid-cols-2 text-white items-center gap-6 md:gap-12 text-center md:[text-align:-webkit-auto] py-8 place-content-center relative z-1">
 
    <div class="left__side">
-    <NuxtImg width="145px" fit="contain" src="/logo.png" class="mx-auto md:ms-0" />
+    <NuxtImg format="webp" quality="80" src="/logo.png" sizes="145px" class="mx-auto md:ms-0" />
     <p class="my-6 md:mt-9 md:mb-0 text-white/70  max-w-xl mx-auto">
      The company principle of Architecture-Studio is the collective conception. From the very beginning, the practice has
      believed in the virtues of exchange, crossing ideas, common effort, shared knowledge and enthusiasm.
@@ -47,7 +47,7 @@ const bgStyle = ref({
    <div class="right__side social__links flex items-center justify-center md:justify-end gap-6">
     <a v-for="link in SOCIAL_MEDIA" target="_blank" :href="link.link">
      <!-- <UIcon :name="link.light_icon" /> -->
-     <UIcon :name="link.icon"  dynamic/>
+     <UIcon :name="link.icon" dynamic />
     </a>
    </div>
   </BaseWrapper>

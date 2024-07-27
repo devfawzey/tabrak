@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import vue from "@vitejs/plugin-vue"
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -11,15 +12,29 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: [// "@nuxtjs/tailwindcss",
-  // "shadcn-nuxt",
-  "@nuxt/icon", "@vueuse/nuxt", // "@nuxt/ui"
-  "@nuxtjs/google-fonts", // "@nuxt/ui",
-  '@pinia/nuxt', "@nuxt/image", "@nuxt/ui", "notivue/nuxt", "nuxt-aos"],
-
-
+  modules: [
+    "@nuxt/icon",
+    "@vueuse/nuxt",
+    "@nuxtjs/google-fonts", '@pinia/nuxt', "@nuxt/image", "@nuxt/ui", "notivue/nuxt", "nuxt-aos", "nuxt-mail"],
+  mail: {
+    message: {
+      to: 'ahmed.booley@gmail.com',
+    },
+    smtp: {
+      host: "https://tabrak-pi.vercel.app/",
+      port: 587,
+    },
+  },
+  // vueEmail: {
+  //   autoImports: false,
+  // },
+  // nitro: {
+  //   rollupConfig: {
+  //     plugins: [vue()]
+  //   }
+  // },
   image: {
-    provider: "vercel"
+    // provider: "vercel"
   },
 
   googleFonts: {
@@ -36,5 +51,12 @@ export default defineNuxtConfig({
   notivue: {
     limit: 2,
     avoidDuplicates: true
+  },
+  colorMode: {
+    preference: "light",
+    fallback: "light"
+  },
+  icon: {
+    componentName: "NuxtIcon"
   }
 })

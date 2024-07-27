@@ -28,3 +28,20 @@ npm install
 # npm
 npm run preview
 ```
+# Features
+## Pages
+#### Home
+- Landing
+- Projects
+#### Contact
+- Form(name,email,phoneNumber,message)
+- Google Map
+- Locations
+#### About  ? should be works
+##### work page
+- has subworks with infos
+## Switch between dark and light mode
+## two languages ??!
+## animations
+
+

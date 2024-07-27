@@ -5,11 +5,6 @@ export const HEADER_LINKS: HeaderLinks[] = [
   section: "#home"
  },
  {
-  title: "about",
-  path: "/about",
-  section: "#about"
- },
- {
   title: "contact",
   path: "/contact",
   section: "#contact"

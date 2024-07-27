@@ -7,8 +7,6 @@ export default function useGsap() {
  const imgZoomInWhileScroll = () => {
   // must run only in homePage
   if (!process.client || !document) return;
-  // check if window innerwidth is bigger than 768px
-  if (!window.matchMedia("(min-width: 769px)").matches) return;
   const landingSection = document.querySelector('section#landing') as HTMLElement
 
   // if scroll less than landing section img can be zoomed,else do nothing
@@ -16,8 +14,8 @@ export default function useGsap() {
   const landingImg = document.querySelector("section#landing .landing__img") as HTMLElement
 
   // lets zoom in
-  landingImg.style.width = `${100 + scrollY / 5}%`
-  // landingImg.style.scale = `${1 + scrollY / 528}`
+  // landingImg.style.width = `${100 + scrollY / 5}%`
+  landingImg.style.scale = `${1 + scrollY / 528}`
 
  }
 
@@ -32,7 +30,13 @@ export default function useGsap() {
    tl.set("html", {
     cursor: "wait"
    })
-
+   tl.set("body", {
+    overflow: "hidden",
+    // paddingRight: "8px",
+    // onComplete() {
+    //  document.querySelector("header#header section.container")?.classList.add('!pe-10')
+    // }
+   })
 
    tl.to(loader, {
     top: 0,
@@ -84,7 +88,7 @@ export default function useGsap() {
 
   tl.to(landingImg, {
    scale: 1,
-   duration: loadingScreenDuration, //
+   duration: 1.75,// loadingScreenDuration, //
    ease: loadinScreenEase,
   }, "=-1.1")
   if (document.querySelector(onceIn)) {
@@ -109,6 +113,11 @@ export default function useGsap() {
    opacity: 0,
    y: 0,
   })
+  tl.set("body", {
+   overflow: "auto",
+   // padding: 0,
+  })
+
  }
 
 
@@ -130,16 +139,11 @@ export default function useGsap() {
   })
  }
  const toggleNavigationMenu = (show: boolean = false) => {
-  tl.to('nav#nav', {
+  gsap.to('nav#nav', {
    y: show ? 0 : '100%',
-   duration: loadingScreenDuration - .4,
+   duration: loadingScreenDuration,
    ease: loadinScreenEase
   })
-  tl.to('.overlay-system', {
-   opacity: show ? 1 : 0,
-   duration: loadingScreenDuration - .4,
-   ease: loadinScreenEase
-  }, "<")
  }
  const animateBoxOnScroll = () => {
   const onceScroll = 'main#home .box-wrapper [once-scroll]'
